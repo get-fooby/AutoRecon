@@ -1,3 +1,5 @@
+[![Packaging status](https://repology.org/badge/vertical-allrepos/autorecon.svg)](https://repology.org/project/autorecon/versions)
+
 # AutoRecon
 
 AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.
@@ -76,12 +78,12 @@ wkhtmltoimage
 AutoRecon uses Python 3 specific functionality and does not support Python 2.
 
 ```
-usage: autorecon.py [-h] [-ct <number>] [-cs <number>] [--profile PROFILE]
-                    [-o OUTPUT] [--single-target] [--only-scans-dir]
-                    [--heartbeat HEARTBEAT]
+usage: autorecon.py [-h] [-t TARGET_FILE] [-ct <number>] [-cs <number>]
+                    [--profile PROFILE_NAME] [-o OUTPUT_DIR] [--single-target]
+                    [--only-scans-dir] [--heartbeat HEARTBEAT]
                     [--nmap NMAP | --nmap-append NMAP_APPEND] [-v]
                     [--disable-sanity-checks]
-                    targets [targets ...]
+                    [targets [targets ...]]
 
 Network reconnaissance tool to port scan and automatically enumerate services
 found on multiple targets.
@@ -93,15 +95,18 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
+  -t TARGET_FILE, --targets TARGET_FILE
+                        Read targets from file.
   -ct <number>, --concurrent-targets <number>
                         The maximum number of target hosts to scan
                         concurrently. Default: 5
   -cs <number>, --concurrent-scans <number>
                         The maximum number of scans to perform per target
                         host. Default: 10
-  --profile PROFILE     The port scanning profile to use (defined in port-
+  --profile PROFILE_NAME
+                        The port scanning profile to use (defined in port-
                         scan-profiles.toml). Default: default
-  -o OUTPUT, --output OUTPUT
+  -o OUTPUT_DIR, --output OUTPUT_DIR
                         The output directory for results. Default: results
   --single-target       Only scan a single target. A directory named after the
                         target will not be created. Instead, the directory
@@ -488,3 +493,11 @@ In fact, enum4linux will always try these ports when it is run. So if the SMB se
 > The first time I heard of AutoRecon I asked whether I actually needed this, my enumeration was OK... I tried it with an open mind and straight away was a little floored on the amount of information that it would generate. Once I got used to it, and started reading the output I realized how much I was missing.  I used it for the OSCP exam, and it found things I would never have otherwise found. I firmly believe, without AutoRecon I would have failed. It's a great tool, and I'm very impressed what Tib3rius was able to craft up. Definitely something I'm already recommending to others, including you!
 >
 >\- othornew
+
+> AutoRecon helped me save valuable time in my OSCP exam, allowing me to spend less time scanning systems and more time breaking into them. This software is worth its weight in gold!
+>
+>\- TorHackr
+
+> The magical tool that made enumeration a piece of cake, just fire it up and watch the beauty of multi-threading spitting a ton of information that would have taken loads of commands to execute. I certainly believe that by just using AutoRecon in the OSCP exam, half of the effort would already be done. Strongly recommended!
+>
+>\- Arman (solved 4.5/5 exam hosts)
